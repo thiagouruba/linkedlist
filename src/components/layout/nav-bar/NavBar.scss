@@ -1,0 +1,140 @@
+$colorFont: rgb(98, 211, 168);
+$colorBg: rgb(41, 41, 41);
+
+@mixin stylyLinks {
+    color: $colorFont;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+@mixin no-margin {
+    margin: 0px;
+    padding: 0px;
+}
+
+@mixin displayFlex {
+    display: flex;
+}
+
+.logo {
+    max-width: 110px;
+    cursor: pointer;
+}
+
+#btn-mobile {
+    display: none;
+}
+
+a {
+    @include stylyLinks();
+}
+
+ul {
+    @include no-margin();
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#header {
+    @include displayFlex();
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $colorBg;
+}
+
+#menu {
+    @include displayFlex();
+    list-style: none;
+    gap: .5rem;
+
+    a {
+        display: block;
+        padding: .5rem;
+
+        &:hover {
+            background-color: darken($colorBg, 10);
+        }
+    }
+
+}
+
+@media (max-width: 500px) {
+    #btn-mobile {
+        color: $colorFont;
+        display: block;
+    }
+
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 65px;
+        right: 0px;
+        background-color: $colorBg;
+        transition: 0.4s;
+        height: 0;
+        z-index: 1000;
+        visibility: hidden;
+        overflow-y: hidden;
+
+        a {
+            padding: 0.8rem 0;
+            margin: 0 0.8rem;
+            border-bottom: 2px solid rgba(0, 0, 0, .05);
+        }
+    }
+
+
+    #btn-mobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    #nav {
+        &.active {
+            #menu {
+                height: calc(100vh - 65px);
+                visibility: visible;
+                overflow: auto;
+            }
+            #hamburguer {
+                border-top-color: transparent;
+                &::before {
+                    transform: rotate(135deg);
+                }
+                &::after {
+                    transform: rotate(-135deg);
+                    top: -7px;
+                }
+            }
+        }
+    }
+
+    #hamburguer {
+        color: $colorFont;
+        display: block;
+        width: 20px;
+        border-top: 2px solid;
+        &::after, &::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+            margin-top: 5px;
+            transition: .4s;
+            position: relative;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form {
+   
+}
+
+.msgSuccess {
+    color: aliceblue;
+    background-color: darkgreen;
+    display: inline;
+}
+
+.msgError {
+    background-color: crimson;
+    display: inline;
+}

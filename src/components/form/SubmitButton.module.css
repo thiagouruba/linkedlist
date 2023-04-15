@@ -1,0 +1,14 @@
+.btn {
+    margin: 0.4rem 0;
+    padding: 0.4rem;
+    border-width: thin;
+    border-color: rgb(98, 211, 168);
+    cursor: pointer;
+    background-color: rgb(98, 211, 168);
+    color: rgb(41, 41, 41);
+}
+
+.btn:hover {
+    background-color: rgb(119, 255, 203);
+    color: rgb(100, 100, 100);
+}

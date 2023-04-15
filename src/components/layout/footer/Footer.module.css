@@ -1,0 +1,32 @@
+.footer {
+    background-color: rgb(41, 41, 41);
+    color: rgb(216, 216, 216);
+    padding: 3em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-height: 120px;
+}
+
+.social_list {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.social_list li {
+    margin: 0 0.5em; 
+}
+
+.social_list li:hover {
+    color:rgb(98, 211, 168);
+}
+
+.social_list svg {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.copy_right span {
+    color: rgb(98, 211, 168);
+}

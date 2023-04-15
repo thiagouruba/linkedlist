@@ -1,0 +1,30 @@
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 190px);
+}
+
+.form {
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+    min-width: 220px;
+    border: solid;
+    border-width: thin;
+    border-radius: 0.4em;
+    border-color: rgb(98, 211, 168);
+    color: rgb(41, 41, 41);
+}
+
+.div h1 {
+    padding: 1rem;
+}
+
+.div input {
+    margin: 0.5rem 0;
+    margin: 1rem 0;
+    padding: 0.5rem;
+}

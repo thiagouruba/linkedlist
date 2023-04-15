@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavBar from './components/layout/nav-bar/NavBar';
+import Home from './components/pages/home/Home';
+import HowWorks from './components/pages/how-works/HowWorks';
+import Questions from './components/pages/questions/Questions';
+import Price from './components/pages/price/Price';
+import Login from './components/pages/login/Login';
+import Container from './components/layout/container/Container';
+import Footer from './components/layout/footer/Footer';
+import Register from './components/pages/register/Register';
+import Dashboard from './components/pages/dashboard/Dashboard';
+import RegisterLink from './components/pages/registrer-link/RegisterLink';
+import EditLink from './components/pages/edit-link/EditLink';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <Container>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/how-works" element={<HowWorks />} />
+          <Route path="/questions" element={<Questions />} />
+          <Route path="/price" element={<Price />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/register-link" element={<RegisterLink />} />
+          <Route path="/edit-link/:id" element={<EditLink />} />
+        </Routes>
+      </Container>
+      <Footer />
+    </Router>
   );
 }
-
-export default App;
