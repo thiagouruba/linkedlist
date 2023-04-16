@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import styles from './DeleteLink.module.css'
 
 export default function DeleteLink({ id, fecharModal }) {
 
@@ -24,14 +25,18 @@ export default function DeleteLink({ id, fecharModal }) {
 
     return (
         <div>
-            <ul>
+            <ul className={styles.list}>
                 <li><h3>Deletar</h3></li>
-                <ul>
-                    <li>URL: {linkData.urlLink}</li>
-                    <li>Link: {linkData.descriptionLink}</li>
+                <ul className={styles.list}>
+                    <li>URL:</li>
+                    <li>{linkData.urlLink}</li>
                 </ul>
-                <li><input type="button" value="Ok" onClick={handleDelete} /></li>
-                <li><input type="button" value="Cancelar" onClick={fecharModal} /></li>
+                <ul className={styles.list}>
+                    <li>Link:</li>
+                    <li>{linkData.descriptionLink}</li>
+                </ul>
+                <li><input className={styles.button} type="button" value="Ok" onClick={handleDelete} /></li>
+                <li><input className={styles.button} type="button" value="Cancelar" onClick={fecharModal} /></li>
             </ul>
             {mensagem && <p>{mensagem}</p>}
         </div>

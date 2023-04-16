@@ -1,12 +1,19 @@
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding: 1rem;
 }
 
 .form {
-   
+    display: flex;
+    flex-direction: column;
+}
+
+.form input, button {
+    margin: .2rem 0 .6rem 0;
 }
 
 .msgSuccess {
@@ -18,4 +25,16 @@
 .msgError {
     background-color: crimson;
     display: inline;
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    background-color: rgb(98, 211, 168);
+    padding: .3rem;
+}
+
+.button:hover {
+    background-color: rgb(47, 156, 114);
+    border: none;
 }

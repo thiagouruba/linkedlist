@@ -1,0 +1,20 @@
+.list {
+    list-style-type: none;
+}
+
+.list ul, input {
+    margin: .2rem 0 .6rem;
+}
+
+.button {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(98, 211, 168);
+    padding: .3rem;
+}
+
+.button:hover {
+    background-color: rgb(47, 156, 114);
+    border: none;
+}

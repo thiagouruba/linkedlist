@@ -53,8 +53,8 @@ export default function EditLink({ id, fecharModal }) {
                 <input type="text" value={linkData.urlLink || ''} name="urlLink" onChange={handleInputChange} />
                 <label>Descrição:</label>
                 <input type="text" value={linkData.descriptionLink || ''} name="descriptionLink" onChange={handleInputChange} />
-                <button>Submit</button>
-                <input type='button' value='fechar' onClick={fecharModal} />
+                <button className={styles.button}>Ok</button>
+                <input className={styles.button} type='button' value='cancelar' onClick={fecharModal} />
             </form>
             { success ? <div className={styles.msgSuccess}>{msgSuccess}</div> : <div className={styles.msgError}>{msgSuccess}</div> }
         </div>
