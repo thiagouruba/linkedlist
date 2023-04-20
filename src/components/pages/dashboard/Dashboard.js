@@ -64,7 +64,7 @@ export default function Dashboard() {
             </div>
             <div>
                 <Modal className={styles.content} isOpen={modalEditAberto} onRequestClose={fecharEditModal} appElement={document.getElementById('root')}>
-                        <EditLink id={id} fecharModal={fecharEditModal} />
+                    <EditLink id={id} fecharModal={fecharEditModal} />
                 </Modal>
                 <Modal className={styles.content} isOpen={modalDeleteAberto} onRequestClose={fecharDeleteModal} appElement={document.getElementById('root')}>
                     <DeleteLink id={id} fecharModal={fecharDeleteModal} />

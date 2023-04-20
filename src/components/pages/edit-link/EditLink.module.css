@@ -12,7 +12,8 @@
     flex-direction: column;
 }
 
-.form input, button {
+.form input,
+button {
     margin: .2rem 0 .6rem 0;
 }
 

@@ -11,25 +11,29 @@ import Register from './components/pages/register/Register';
 import Dashboard from './components/pages/dashboard/Dashboard';
 import RegisterLink from './components/pages/registrer-link/RegisterLink';
 import EditLink from './components/pages/edit-link/EditLink';
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
   return (
-    <Router>
-      <NavBar />
-      <Container>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/how-works" element={<HowWorks />} />
-          <Route path="/questions" element={<Questions />} />
-          <Route path="/price" element={<Price />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/register-link" element={<RegisterLink />} />
-          <Route path="/edit-link/:id" element={<EditLink />} />
-        </Routes>
-      </Container>
-      <Footer />
-    </Router>
+    <div>
+      <Router>
+        <NavBar />
+        <Container>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/how-works" element={<HowWorks />} />
+            <Route path="/questions" element={<Questions />} />
+            <Route path="/price" element={<Price />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/register-link" element={<RegisterLink />} />
+            <Route path="/edit-link/:id" element={<EditLink />} />
+          </Routes>
+          <ToastContainer position="top-center" theme="colored"/>
+        </Container>
+        <Footer />
+      </Router>
+    </div>
   );
 }

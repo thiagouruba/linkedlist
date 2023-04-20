@@ -1,6 +1,9 @@
 import styles from './EditLink.module.css';
 import { useEffect, useState } from "react";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function EditLink({ id, fecharModal }) {
 
     const [linkData, setLinkData] = useState({});
@@ -20,9 +23,6 @@ export default function EditLink({ id, fecharModal }) {
         setLinkData({ ...linkData, [name]: value });
     };
 
-    const [success, setSuccess] = useState(0);
-    const [msgSuccess, setMsgSuccess] = useState('');
-
     const handleSubmit = async e => {
         e.preventDefault();
 
@@ -36,11 +36,10 @@ export default function EditLink({ id, fecharModal }) {
             .then((response) => response.json())
             .then((responseJson) => {
                 if (responseJson.error) {
-                    setMsgSuccess('Erro ao editar');
-                    setSuccess(false);
+                    toast.error("Erro ao editar!");
                 } else {
-                    setMsgSuccess('Editado com sucesso!');
-                    setSuccess(true);
+                    toast.success("Editado com sucesso!");
+                    fecharModal();
                 }
             })
     };
@@ -56,7 +55,6 @@ export default function EditLink({ id, fecharModal }) {
                 <button className={styles.button}>Ok</button>
                 <input className={styles.button} type='button' value='cancelar' onClick={fecharModal} />
             </form>
-            { success ? <div className={styles.msgSuccess}>{msgSuccess}</div> : <div className={styles.msgError}>{msgSuccess}</div> }
         </div>
     )
 }
