@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 190px);
     text-align: center;
 }
 
@@ -12,21 +11,27 @@
     flex-direction: column;
     width: 30%;
     min-width: 220px;
-    border: solid;
-    border-width: thin;
-    border-radius: 5%;
-    border-color: rgb(98, 211, 168);
-    color: rgb(41, 41, 41);
-
 }
 
 .form h2 {
     margin: 1rem 0;
 }
 
-.form input {
+.inputText {
     margin: 0.4rem 0;
     padding: 0.4rem;
     border-width: thin;
     border-color: rgb(98, 211, 168);
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    background-color: rgb(98, 211, 168);
+    padding: .3rem;
+}
+
+.button:hover {
+    background-color: rgb(47, 156, 114);
+    border: none;
 }

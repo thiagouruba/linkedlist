@@ -2,13 +2,10 @@
 
 header("Content-Type: application/json; charset=UTF-8");
 
-//Inclluir a conexão
 include("conexao.php");
 
-//Obter dados
 $response_json = file_get_contents("php://input");
 
-//Extrair dados do json
 $dados = json_decode($response_json, true);
 
 if($dados) {
@@ -36,8 +33,6 @@ if($dados) {
         "mensage" => "Acesso negado!",
     ];
 }
-
-http_response_code(200);
 echo json_encode($response);
 
 ?>

@@ -5,6 +5,7 @@ import { FaEdit, FaRegTrashAlt } from 'react-icons/fa';
 import Modal from 'react-modal';
 import EditLink from '../edit-link/EditLink';
 import DeleteLink from '../delete-link/DeleteLink';
+import RegisterLink from '../registrer-link/RegisterLink';
 
 Modal.setAppElement('#root');
 
@@ -22,6 +23,7 @@ export default function Dashboard() {
 
     const [modalEditAberto, setModalEditAberto] = useState(false);
     const [modalDeleteAberto, setModalDeleteAberto] = useState(false);
+    const [modalRegisterAberto, setModalRegisterAberto] = useState(false);
 
     function abrirEditModal(id) {
         setId(id);
@@ -40,13 +42,20 @@ export default function Dashboard() {
     function fecharDeleteModal() {
         setModalDeleteAberto(false);
     }
+    function abrirRegisterModal() {
+        setModalRegisterAberto(true);
+    }
+
+    function fecharRegisterModal() {
+        setModalRegisterAberto(false);
+    }
 
     return (
         <div className={styles.div}>
             <h2 className={styles.h2}>Painel de Controle</h2>
             <ul className={styles.link}>
                 <li><h3>Links</h3></li>
-                <li><Button text="Adicionar link" link="/register-link" /> </li>
+                <li><Button text="Adicionar Link" eventClick={abrirRegisterModal} /></li>
             </ul>
             <div>
                 {links.map(link => (
@@ -68,6 +77,9 @@ export default function Dashboard() {
                 </Modal>
                 <Modal className={styles.content} isOpen={modalDeleteAberto} onRequestClose={fecharDeleteModal} appElement={document.getElementById('root')}>
                     <DeleteLink id={id} fecharModal={fecharDeleteModal} />
+                </Modal>
+                <Modal className={styles.content} isOpen={modalRegisterAberto} onRequestClose={fecharRegisterModal} appElement={document.getElementById('root')}>
+                    <RegisterLink fecharModal={fecharRegisterModal} />
                 </Modal>
             </div>
         </div>

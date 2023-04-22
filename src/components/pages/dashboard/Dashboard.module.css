@@ -69,4 +69,6 @@
     border-radius: 4px;
     outline: none;
     padding: 20px;
+    box-shadow: 5px 2px 2px rgb(182, 233, 236);
+    min-width: 250px;
 }

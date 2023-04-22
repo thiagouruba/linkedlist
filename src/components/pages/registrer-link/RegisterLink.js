@@ -1,8 +1,8 @@
 import styles from './RegisterLink.module.css'
-import SubmitButton from "../../form/SubmitButton"
 import { useState } from 'react'
+import { toast } from 'react-toastify';
 
-export default function RegisterLink() {
+export default function RegisterLink({ fecharModal }) {
 
     const ipMachine = '192.168.0.192';
 
@@ -18,7 +18,6 @@ export default function RegisterLink() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(link)
 
         await fetch(`http://${ipMachine}/api/api_linkedlist/cadastrar.php`, {
             method: 'POST',
@@ -28,18 +27,24 @@ export default function RegisterLink() {
             body: JSON.stringify({ link })
         })
             .then((response) => response.json())
-            .then((responseJson) => (
-                console.log(responseJson)
-            ));
+            .then((responseJson) => {
+                if(responseJson.error) {
+                    toast.error("Erro ao Cadastrar o link!");
+                } else {
+                    toast.success("Link cadastrado com sucesso");
+                    fecharModal();
+                }
+            });
     }
 
     return (
         <div className={styles.div}>
             <form className={styles.form} onSubmit={handleSubmit} >
                 <h2>Adicionar link</h2>
-                <input type="text" placeholder="Link" value={link.urlLink} name="urlLink" onChange={handleSet} />
-                <input type="text" placeholder="Descrição" value={link.descriptionLink} name="descriptionLink" onChange={handleSet} />
-                <SubmitButton text="Adicionar" type="submit" />
+                <input className={styles.inputText} type="text" placeholder="Link" value={link.urlLink} name="urlLink" onChange={handleSet} />
+                <input className={styles.inputText} type="text" placeholder="Descrição" value={link.descriptionLink} name="descriptionLink" onChange={handleSet} />
+                <button className={styles.button} type='submit'>Ok</button>
+                <input className={styles.button} type='button' value='cancelar' onClick={fecharModal} />
             </form>
         </div>
     )

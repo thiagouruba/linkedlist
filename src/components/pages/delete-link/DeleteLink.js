@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './DeleteLink.module.css'
+import { toast } from 'react-toastify';
 
 export default function DeleteLink({ id, fecharModal }) {
 
@@ -13,18 +14,23 @@ export default function DeleteLink({ id, fecharModal }) {
             setLinkData(data);
         }
         fetchData();
-    }, [id]);
-
-    const [mensagem, setMensagem] = useState('');
+    }, [id]);   
 
     function handleDelete() {
         fetch(`http://${ipMachine}/api/api_linkedlist/excluir.php?id=${id}`)
             .then(response => response.json())
-            .then(data => setMensagem(data.mensage));
+            .then(data => {
+                if(data.error) {
+                    toast.error("Erro ao deletar o link!");
+                } else {
+                    toast.success("Link deletado com sucesso!");
+                    fecharModal();
+                }
+            });
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <ul className={styles.list}>
                 <li><h3>Deletar</h3></li>
                 <ul className={styles.list}>
@@ -32,13 +38,12 @@ export default function DeleteLink({ id, fecharModal }) {
                     <li>{linkData.urlLink}</li>
                 </ul>
                 <ul className={styles.list}>
-                    <li>Link:</li>
+                    <li>Descrição:</li>
                     <li>{linkData.descriptionLink}</li>
                 </ul>
                 <li><input className={styles.button} type="button" value="Ok" onClick={handleDelete} /></li>
                 <li><input className={styles.button} type="button" value="Cancelar" onClick={fecharModal} /></li>
             </ul>
-            {mensagem && <p>{mensagem}</p>}
         </div>
     )
 }
