@@ -16,7 +16,7 @@ export default function Dashboard() {
     const ipMachine = '192.168.0.192';
 
     useEffect(() => {
-        fetch(`http://${ipMachine}/api/api_linkedlist/api_rest_full/read`)
+        fetch(`http://${ipMachine}/api/api_linkedlist/api_rest/read`)
             .then(response => response.json())
             .then(data => setLinks(data.links))
     }, [links]);
