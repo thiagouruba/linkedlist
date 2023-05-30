@@ -16,11 +16,8 @@ export default function NavBar() {
                 <button id='btn-mobile'>
                     <span id='hamburguer'></span></button>
                 <ul id="menu">
-                    <li><a href='/how-works'>Como funciona</a></li>
-                    <li><a href='/questions'>Perguntas frequentes</a></li>
-                    <li><a href='/price'>Preço</a></li>
-                    <li><a href='/login'>Entrar</a></li>
-                    <li><a href='/register'>Cadastrar</a></li>
+                    <li><a href='/'>Início</a></li>
+                    <li><a href='/dashboard'>Painel de Controle</a></li>
                 </ul>
             </nav>
         </div>
